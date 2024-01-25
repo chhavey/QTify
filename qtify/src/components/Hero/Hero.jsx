@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./HeroSection.module.css";
+import styles from "./Hero.module.css";
 import { ReactComponent as Headphones } from "../../assets/vibrating-headphone.svg";
 
-function HeroSection() {
+function Hero() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -14,4 +14,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default Hero;

@@ -1,11 +1,13 @@
-import HeroSection from "./components/HeroSection/HeroSection";
+import Hero from "./components/Hero/Hero";
 import Navbar from "./components/NavBar/Navbar";
+import Section from "./components/Section/Section";
 
 function App() {
   return (
     <>
       <Navbar />
-      <HeroSection />
+      <Hero />
+      <Section title="Top Albums" />
     </>
   );
 }
