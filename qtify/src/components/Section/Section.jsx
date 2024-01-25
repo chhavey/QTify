@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
-import axios from "axios";
+import { topAlbum, newAlbum } from "../../api/album";
 
-function Section({ title }) {
+function Section({ title, albumType }) {
   const [data, setData] = useState([]);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://qtify-backend-labs.crio.do/albums/top"
-        );
-        setData(response.data);
+        const response =
+          albumType === "top" ? await topAlbum() : await newAlbum();
+        setData(response);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [albumType]);
 
   const toggleShowAll = () => {
     setShowAll((prevShowAll) => !prevShowAll);
