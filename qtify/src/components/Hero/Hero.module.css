@@ -1,18 +1,11 @@
-.wrapper {
+.hero {
   background-color: var(--color-black);
   height: 270px;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  gap: 30px;
   color: var(--color-white);
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--color-white);
-  font-weight: 600;
-  font-size: 32px;
 }

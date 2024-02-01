@@ -1,48 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./Section.module.css";
 import Card from "../Card/Card";
-import { topAlbum, newAlbum } from "../../api/album";
+import { CircularProgress } from "@mui/material";
+import Carousel from "./../Carousel/Carousel";
 
-function Section({ title, albumType }) {
-  const [data, setData] = useState([]);
-  const [showAll, setShowAll] = useState(false);
+function Section({ title, data, type }) {
+  const [carouselToggle, setCarouselToggle] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response =
-          albumType === "top" ? await topAlbum() : await newAlbum();
-        setData(response);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [albumType]);
-
-  const toggleShowAll = () => {
-    setShowAll((prevShowAll) => !prevShowAll);
+  const handleToggle = () => {
+    setCarouselToggle((prevState) => !prevState);
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.topSection}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.btn} onClick={toggleShowAll}>
-          {showAll ? "Collapse" : "Show All"}
+    <div>
+      <div className={styles.header}>
+        <h3>{title}</h3>
+        <h4 className={styles.toggleText} onClick={handleToggle}>
+          {!carouselToggle ? "Collapse" : "Show All"}
+        </h4>
+      </div>
+      {data.length === 0 ? (
+        <CircularProgress />
+      ) : (
+        <div className={styles.cardWrapper}>
+          {!carouselToggle ? (
+            <div className={styles.wrapper}>
+              {data.map((ele) => (
+                <Card data={ele} type={type} />
+              ))}
+            </div>
+          ) : (
+            <Carousel
+              data={data}
+              renderComponent={(data) => <Card data={data} type={type} />}
+            />
+          )}
         </div>
-      </div>
-      <div className={styles.cardGrid}>
-        {data.map((item) => (
-          <Card
-            key={item.id}
-            Image={item.image}
-            Follows={item.follows}
-            Name={item.title}
-          />
-        ))}
-      </div>
+      )}
     </div>
   );
 }

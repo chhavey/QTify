@@ -1,33 +1,20 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  padding: 0 0.5rem;
-  border-bottom: 1px solid var(--color-primary);
-}
-
-.topSection {
+.header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
+  align-items: baseline;
 }
 
-.title {
-  font-weight: 600;
-  color: var(--color-white);
+.cardWrapper {
+  margin-top: 18px;
 }
 
-.btn {
-  font-weight: 600;
-  color: var(--color-primary);
-  cursor: pointer;
-}
-
-.cardGrid {
+.wrapper {
   display: flex;
+  gap: 40px;
   flex-wrap: wrap;
-  gap: 1.35rem;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
+}
+
+.toggleText {
+  cursor: pointer;
+  color: var(--color-primary);
 }

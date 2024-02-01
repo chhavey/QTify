@@ -58,3 +58,14 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+.swiper-slide {
+  width: auto !important;
+}

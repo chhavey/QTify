@@ -1,15 +1,20 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import { ReactComponent as Headphones } from "../../assets/vibrating-headphone.svg";
 
 function Hero() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.content}>
-        <div>100 Thousand Songs, ad-free</div>
-        <div>Over thousands podcast episodes</div>
+    <div className={styles.hero}>
+      <div>
+        <h1>100 Thousand Songs, ad-free</h1>
+        <h1>Over thousands podcast episodes</h1>
       </div>
-      <Headphones />
+      <div>
+        <img
+          src={require("../../assets/Hero.png")}
+          width={212}
+          alt="Headphones"
+        />
+      </div>
     </div>
   );
 }
