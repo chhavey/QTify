@@ -11,6 +11,7 @@ function CarouselLeftNavigation() {
     swiper.on("slideChange", function () {
       setIsBeginning(swiper.isBeginning);
     });
+    // eslint-disable-next-line
   }, []);
 
   return (
